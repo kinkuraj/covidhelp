@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>food | food-delivery</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="food" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://chennaicovidhelp.github.io/food-delivery/" />
+<meta property="og:url" content="https://chennaicovidhelp.github.io/food-delivery/" />
+<meta property="og:site_name" content="food-delivery" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="food" />
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=FV_JJFa5cmdpO1InPnOvLjuP4uCXTYDsna2sSb70PGTg6bTbOb9tFEcljfzWpeENQAgzLk7RGt7q-Oqj1yujf3VpRlyBpMiMpcTf03dem98" charset="UTF-8"></script><script type="application/ld+json">
+{"url":"https://chennaicovidhelp.github.io/food-delivery/","headline":"food","@type":"WebSite","name":"food-delivery","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/food-delivery/assets/css/style.css?v=065b20a7c205ad0bb83582492921e4649e9bd525">
+  </head>
+  <body>
+    <section class="page-header">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Home delivered Meals in Chennai</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Please see the complete list below or select your area in the search box below</p>
+      <select class="form-select" id="location_list" aria-label="Default select example" style="color:#000000">
+        <option value="" selected>Select a location</option>
+      </select>
+    </div>
+  </div>
+ </section>
+  <section class="main-content">
+  <div id="results" class="px-4 py-5 my-5 text-center" style="display:none">
+
+    <h3 class="display-8 fw-bold">List of volunteers</h3>
+    <p class="lead mb-4">Below is the list of people who are available in your selected area</p>
+
+    <div class="col-lg-10 mx-auto">
+      <table id="people" class="table table-condensed table-striped table-responsive"></table>
+    </div>
+  </div>  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+
+
+  <script type="text/javascript">
+    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1ZRr1JrH0xD4WhzGgcg_Z4HMKabeGCIEo_z6vHDGSn_Q/edit#gid=0';
+
+    function search(val){
+      $('#results').hide();
+      $('#people').empty();
+
+      if(val != ""){
+        query = "select B,D,E,F,G,H,I where lower(E) contains '"+ val.toLowerCase() +"'";
+
+        $('#people').sheetrock({
+          url: mySpreadsheet,
+          query: query,
+          reset: true
+        });
+
+        $('#results').show();
+       }
+      }
+
+  $( document ).ready(function() {
+      let dropdown = $('#location_list');
+      dropdown.empty();
+      dropdown.append('<option selected="true" disabled>Select a Location</option>');
+      dropdown.prop('selectedIndex', 0);
+      var url = "https://spreadsheets.google.com/feeds/cells/1ZRr1JrH0xD4WhzGgcg_Z4HMKabeGCIEo_z6vHDGSn_Q/2/public/full?alt=json";
+    
+      let xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+      let data = JSON.parse(this.responseText).feed.entry
+        let i;
+      for (i = 0; i < data.length; i++) {
+      dropdown.append($('<option></option>').attr('value', data[i]["gs$cell"]["$t"]).text(data[i]["gs$cell"]["$t"]));
+      }
+    };
+  }
+      xmlhttp.open(
+      "GET",
+      "https://spreadsheets.google.com/feeds/cells/1ZRr1JrH0xD4WhzGgcg_Z4HMKabeGCIEo_z6vHDGSn_Q/2/public/full?alt=json",
+       true
+      );
+      xmlhttp.send();
+      });
+      $("#location_list").change(function(){
+        var val = $(this).val();
+        search(val);
+      });
+</script>
+</section>
+</body>
+</html>
