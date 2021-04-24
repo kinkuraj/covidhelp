@@ -71,8 +71,6 @@
     }
 
     $( document ).ready(function() {
-      var d = new Date();
-      alert("Start " + d.getTime());
       let dropdown = $('#location_list');
       dropdown.empty();
       dropdown.append('<option selected="true" disabled>Select a Location</option>');
@@ -95,7 +93,6 @@
         true
       );
       xmlhttp.send();
-      alert("End " + d.getTime());
     });
     $("#location_list").change(function(){
       var val = $(this).val();
