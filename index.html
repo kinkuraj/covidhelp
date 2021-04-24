@@ -8,30 +8,32 @@
   <meta name="generator" content="Jekyll v3.9.0" />
   <meta property="og:title" content="food" />
   <meta property="og:locale" content="en_US" />
-  <link rel="canonical" href="https://chennaicovidhelp.github.io/food-delivery/" />
-  <meta property="og:url" content="https://chennaicovidhelp.github.io/food-delivery/" />
+  <link rel="canonical" href="https://covidhelp.github.io/" />
+  <meta property="og:url" content="https://covidhelp.github.io/" />
   <meta property="og:site_name" content="food-delivery" />
   <meta name="twitter:card" content="summary" />
   <meta property="twitter:title" content="food" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#157878">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<section class="page-header">
+<div class="header">
   <div class="px-4 py-5 my-5 text-center">
     <h1 class="display-5 fw-bold">Home delivered Meals in Chennai</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Please see the complete list below or select your area in the search box below</p>
-      <select class="form-select" id="location_list" aria-label="Default select example" style="color:#000000">
+      <select class="form-select" id="location_list" aria-label="Default select example" >
         <option value="" selected>Select a location</option>
       </select>
     </div>
   </div>
-</section>
-<section class="main-content">
+</div>
+<div class="container">
   <div id="results" class="px-4 py-5 my-5 text-center" style="display:none">
 
     <h3 class="display-8 fw-bold">List of volunteers</h3>
@@ -41,8 +43,6 @@
       <table id="people" class="table table-condensed table-striped table-responsive"></table>
     </div>
   </div>
-
-
 
 
 
@@ -95,6 +95,6 @@
       search(val);
     });
   </script>
-</section>
+</div>
 </body>
 </html>
